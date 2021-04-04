@@ -18,3 +18,13 @@
 Введите число: 123
 Количество четных и нечетных цифр в числе равно: (1, 2)
 """
+
+
+def func(n):
+	if n // 10 == 0:
+		return n % 2
+	return n % 2 + func(n // 10)
+
+
+number = int(input('Введите число: '))
+print(f'Количество четных цифр {len(str(number)) - func(number)}, нечетных цифр {func(number)} в числе {number}')

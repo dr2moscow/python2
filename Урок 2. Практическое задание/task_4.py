@@ -12,3 +12,20 @@
 Подсказка:
 Каждый очередной элемент в 2 раза меньше предыдущего и имеет противоположный знак
 """
+obj = [1]
+
+
+def recurcion(n):
+	if n == 1:
+		print(f'Сумма элементов равна {sum(obj)}')
+	else:
+		if n % 2 == 0:
+			obj.append(obj[-1] / -2)
+			recurcion(n - 1)
+		else:
+			obj.append(obj[-1] / -2)
+			recurcion(n - 1)
+
+
+number = int(input('Введите число: '))
+recurcion(number)

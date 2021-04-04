@@ -23,3 +23,18 @@
 и допускается комб-е - цикл и рекурсия
 """
 
+
+def recursion(d1, d2, string='', count=1):
+    if d1 == d2:
+        string = string + f'{d2} - {chr(d2)}'
+        print(string)
+    else:
+        if count % 10 == 0:
+            string = string + f'{d1} - {chr(d1)} \n'
+            recursion(d1 + 1, d2, string, count + 1)
+        else:
+            string = string + f'{d1} - {chr(d1)}'
+            recursion(d1 + 1, d2, string, count + 1)
+
+
+recursion(32, 127)

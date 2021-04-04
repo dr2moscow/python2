@@ -11,3 +11,27 @@
 Подсказка:
 Базовый случай здесь - угадали число или закончились попытки
 """
+
+import random
+
+
+def recursion(n, tmp=0):
+    if tmp < 10:
+        print(f'Осталось {10 - tmp} попыток')
+        inp = int(input('Введи число: '))
+        if n == inp:
+            print(f'УРА!!! Ты победил, угадал с {tmp} попытки!!!')
+        if n > inp:
+            print(f'Не правильно, число больше')
+            recursion(n, tmp + 1)
+        if n < inp:
+            print(f'Не правильно, число меньше')
+            recursion(n, tmp + 1)
+    else:
+        print(f'Ты проиграл, осталось 0 попыток, правильное число {n}')
+
+
+digitalrandom = random.randint(0, 100)
+print('Привет, давай играть, я загадал число от 0 до 100, у тебя 10 попыток!')
+
+recursion(digitalrandom)
