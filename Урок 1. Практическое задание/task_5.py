@@ -26,41 +26,41 @@
 
 
 class PlateStack:
-	def __init__(self, limit):
-		self.limit = limit
-		self.__stacks = []
+    def __init__(self, limit):
+        self.limit = limit
+        self.__stacks = []
 
-	def add(self, number_of_plates = 1):
-		for i in range(number_of_plates):
-			if len(self.__stacks) == 0 or len(self.__stacks[-1]) == self.limit:
-				self.__stacks.append(Stack())
-			self.__stacks[-1].add('Тарелка')
+    def add(self, number_of_plates = 1):
+        for i in range(number_of_plates):
+            if len(self.__stacks) == 0 or len(self.__stacks[-1]) == self.limit:
+                self.__stacks.append(Stack())
+            self.__stacks[-1].add('Тарелка')
 
-	def remove(self, number_of_plates = 1):
-		for i in range(number_of_plates):
-			if len(self.__stacks) == 0:
-				return
-			self.__stacks[-1].pop()
-			if len(self.__stacks[-1]) == 0:
-				self.__stacks.pop()
+    def remove(self, number_of_plates = 1):
+        for i in range(number_of_plates):
+            if len(self.__stacks) == 0:
+                return
+            self.__stacks[-1].pop()
+            if len(self.__stacks[-1]) == 0:
+                self.__stacks.pop()
 
-	def __str__(self):
-		s = ' '.join([str(len(stack)) for stack in self.__stacks])
-		return 'Количество стопок: ' + str(len(self.__stacks)) + '\nСостояние стопок: ' + s + '\n'
+    def __str__(self):
+        s = ' '.join([str(len(stack)) for stack in self.__stacks])
+        return 'Количество стопок: ' + str(len(self.__stacks)) + '\nСостояние стопок: ' + s + '\n'
 
 
 class Stack:
-	def __init__(self):
-		self.__lst = []
+    def __init__(self):
+        self.__lst = []
 
-	def add(self, element):
-		self.__lst.append(element)
+    def add(self, element):
+        self.__lst.append(element)
 
-	def pop(self):
-		return self.__lst.pop()
+    def pop(self):
+        return self.__lst.pop()
 
-	def __len__(self):
-		return len(self.__lst)
+    def __len__(self):
+        return len(self.__lst)
 
 
 # Задаем количество тарелок в стопке

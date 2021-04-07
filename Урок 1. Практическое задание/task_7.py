@@ -12,14 +12,14 @@
 """
 
 
-def reverse(word):
-	return word[::-1]
+def reverse(words):
+    return words[::-1]
 
 
-def isPalindrome(word):
-	if word == reverse(word):
-		return True
-	return False
+def isPalindrome(words):
+    if words == reverse(words):
+        return True
+    return False
 
 
 word = 'молоко делили ледоколом'
@@ -27,6 +27,6 @@ word = word.replace(' ', '')
 answer = isPalindrome(word)
 
 if answer == 1:
-	print("Это палиндром")
+    print("Это палиндром")
 else:
-	print("Это не палиндром")
+    print("Это не палиндром")
