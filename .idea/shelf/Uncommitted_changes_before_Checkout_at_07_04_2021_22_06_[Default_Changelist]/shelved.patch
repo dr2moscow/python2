@@ -1,0 +1,631 @@
+Index: Урок 1. Практическое задание/task_4.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"\r\nЗадание 4.\r\n\r\nДля этой задачи:\r\n1) придумайте 2-3 решения (не менее двух)\r\n2) оцените сложность каждого решения в нотации О-большое\r\n3) сделайте вывод, какое решение эффективнее и почему\r\n\r\nПримечание:\r\nБез выполнения пунктов 2 и 3 задание считается нерешенным. Пункты 2 и 3 можно выполнить\r\nчерез строки документации в самом коде.\r\nЕсли у вас возникают сложности, постарайтесь подумать как можно решить задачу,\r\nа не писать \"мы это не проходили)\".\r\nАлгоритмизатор должен развивать мышление, а это прежде всего практика.\r\nА без столкновения со сложностями его не развить.\r\n\r\nСама задача:\r\nПользователи веб-ресурса проходят аутентификацию.\r\nВ системе хранятся логин, пароль и отметка об активации учетной записи.\r\n\r\nНужно реализовать проверку, может ли пользователь быть допущен к ресурсу.\r\nПри этом его учетка должна быть активирована.\r\nА если нет, то польз-лю нужно предложить ее пройти.\r\n\r\nПриложение должно давать ответы на эти вопросы и быть реализовано в виде функции.\r\nДля реализации хранилища можно применить любой подход,\r\nкоторый вы придумаете, например, реализовать словарь.\r\n\"\"\"\r\n\r\n\r\n# Решение 1. Уровень сложности O(1)\r\ndef verify_1(l, p):\r\n\tif l in log_data.values():\r\n\t\tif log_data['password'] == p:\r\n\t\t\tif log_data['true'] == '1':\r\n\t\t\t\tprint('Добро пожаловать!')\r\n\t\t\t\treturn\r\n\t\t\tprint('Ваша учетная запись заблокирована!')\r\n\t\t\treturn\r\n\t\tprint('Некорректный пароль!')\r\n\t\treturn\r\n\tprint('Некорректный логин!')\r\n\treturn\r\n\r\n\r\n# Решение 2. Уровень сложности O(len(n))\r\ndef verify_2(l, p):\r\n\tdict_1 = {'login': l, 'password': p}\r\n\tif dict_1['login'] == log_data['login'] and dict_1['password'] == log_data['password']:\r\n\t\tif log_data['true'] == '1':\r\n\t\t\tprint('Добро пожаловать!')\r\n\t\t\treturn\r\n\t\tprint('Ваша учетная запись заблокирована!')\r\n\t\treturn\r\n\tprint('Некоректный логин или пароль!')\r\n\r\n\r\nlog_data = {'login': 'xxx', 'password': 'abc', 'true': '1'}\r\n\r\nverify_1('abc', 'xxx')\r\nverify_2('xxx', 'abc')\r\n\r\n# Вывод: первое решение имеет меньшую сложность\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Урок 1. Практическое задание/task_4.py b/Урок 1. Практическое задание/task_4.py
+--- a/Урок 1. Практическое задание/task_4.py	
++++ b/Урок 1. Практическое задание/task_4.py	
+@@ -1,11 +1,9 @@
+ """
+ Задание 4.
+-
+ Для этой задачи:
+ 1) придумайте 2-3 решения (не менее двух)
+ 2) оцените сложность каждого решения в нотации О-большое
+ 3) сделайте вывод, какое решение эффективнее и почему
+-
+ Примечание:
+ Без выполнения пунктов 2 и 3 задание считается нерешенным. Пункты 2 и 3 можно выполнить
+ через строки документации в самом коде.
+@@ -13,21 +11,53 @@
+ а не писать "мы это не проходили)".
+ Алгоритмизатор должен развивать мышление, а это прежде всего практика.
+ А без столкновения со сложностями его не развить.
+-
+ Сама задача:
+ Пользователи веб-ресурса проходят аутентификацию.
+ В системе хранятся логин, пароль и отметка об активации учетной записи.
+-
+ Нужно реализовать проверку, может ли пользователь быть допущен к ресурсу.
+ При этом его учетка должна быть активирована.
+ А если нет, то польз-лю нужно предложить ее пройти.
+-
+ Приложение должно давать ответы на эти вопросы и быть реализовано в виде функции.
+ Для реализации хранилища можно применить любой подход,
+ который вы придумаете, например, реализовать словарь.
+ """
+ 
+ 
++# Решение 1. Уровень сложности O(1)
++def verify_1(let, p):
++    if let in log_data.values():
++        if log_data['password'] == p:
++            if log_data['true'] == '1':
++                print('Добро пожаловать!')
++                return
++            print('Ваша учетная запись заблокирована!')
++            return
++        print('Некорректный пароль!')
++        return
++    print('Некорректный логин!')
++    return
++
++
++# Решение 2. Уровень сложности O(len(n))
++def verify_2(let, p):
++    dict_1 = {'login': let, 'password': p}
++    if dict_1['login'] == log_data['login'] and dict_1['password'] == log_data['password']:
++        if log_data['true'] == '1':
++            print('Добро пожаловать!')
++            return
++        print('Ваша учетная запись заблокирована!')
++        return
++    print('Некоректный логин или пароль!')
++
++
++log_data = {'login': 'xxx', 'password': 'abc', 'true': '1'}
++
++verify_1('abc', 'xxx')
++verify_2('xxx', 'abc')
++
++# Вывод: первое решение имеет меньшую сложность
++
++
+ # Решение 1. Уровень сложности O(1)
+ def verify_1(l, p):
+ 	if l in log_data.values():
+Index: Урок 1. Практическое задание/task_3.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"\r\nЗадание 3.\r\n\r\nДля этой задачи:\r\n1) придумайте 2-3 решения (не менее двух)\r\n2) оцените сложность каждого решения в нотации О-большое\r\n3) сделайте вывод, какое решение эффективнее и почему\r\n\r\nПримечание:\r\nБез выполнения пунктов 2 и 3 задание считается нерешенным. Пункты 2 и 3 можно выполнить\r\nчерез строки документации в самом коде.\r\nЕсли у вас возникают сложности, постарайтесь подумать как можно решить задачу,\r\nа не писать \"мы это не проходили)\".\r\nАлгоритмизатор должен развивать мышление, а это прежде всего практика.\r\nА без столкновения со сложностями его не развить.\r\n\r\nСама задача:\r\nИмеется хранилище с информацией о компаниях: название и годовая прибыль.\r\nДля реализации хранилища можно применить любой подход,\r\nкоторый вы придумаете, например, реализовать словарь.\r\nРеализуйте поиск трех компаний с наибольшей годовой прибылью.\r\nВыведите результат.\r\n\"\"\"\r\n\r\n\r\n# Решение 1, уровень сложности O(n log n)\r\ndef top_company(comp_list):\r\n\ttop = sorted(comp_list, key = comp_list.get, reverse = True)[:3]\r\n\treturn top\r\n\r\n\r\n# Решение 2, уровень сложности O(n^2)\r\ndef top_company_2(company_list, q_data):\r\n\ttop = []\r\n\tmax_list = []\r\n\tfor i in company_list.values():\r\n\t\ttop.append(i)\r\n\tfor x in range(q_data):\r\n\t\tmax_profit = max(top)\r\n\t\tmax_list.append(max_profit)\r\n\t\ttop.remove(max_profit)\r\n\treturn max_list\r\n\r\n\r\ncompany = {'BMW': 200100, 'AUDI': 7500, 'Sberbank': 50000, 'VTB': 222, 'Google': 921200, 'HH': 10}\r\n\r\nprint(top_company(company))\r\nprint(top_company_2(company, 3))\r\n\r\n# Решение 1 визуально выглядит лучше и по уровню сложности лучше, т.к. сложность O(n log n) меньше, чем O(n^)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Урок 1. Практическое задание/task_3.py b/Урок 1. Практическое задание/task_3.py
+--- a/Урок 1. Практическое задание/task_3.py	
++++ b/Урок 1. Практическое задание/task_3.py	
+@@ -1,11 +1,9 @@
+ """
+ Задание 3.
+-
+ Для этой задачи:
+ 1) придумайте 2-3 решения (не менее двух)
+ 2) оцените сложность каждого решения в нотации О-большое
+ 3) сделайте вывод, какое решение эффективнее и почему
+-
+ Примечание:
+ Без выполнения пунктов 2 и 3 задание считается нерешенным. Пункты 2 и 3 можно выполнить
+ через строки документации в самом коде.
+@@ -13,7 +11,6 @@
+ а не писать "мы это не проходили)".
+ Алгоритмизатор должен развивать мышление, а это прежде всего практика.
+ А без столкновения со сложностями его не развить.
+-
+ Сама задача:
+ Имеется хранилище с информацией о компаниях: название и годовая прибыль.
+ Для реализации хранилища можно применить любой подход,
+@@ -25,21 +22,21 @@
+ 
+ # Решение 1, уровень сложности O(n log n)
+ def top_company(comp_list):
+-	top = sorted(comp_list, key = comp_list.get, reverse = True)[:3]
+-	return top
++    top = sorted(comp_list, key = comp_list.get, reverse = True)[:3]
++    return top
+ 
+ 
+ # Решение 2, уровень сложности O(n^2)
+ def top_company_2(company_list, q_data):
+-	top = []
+-	max_list = []
+-	for i in company_list.values():
+-		top.append(i)
+-	for x in range(q_data):
+-		max_profit = max(top)
+-		max_list.append(max_profit)
+-		top.remove(max_profit)
+-	return max_list
++    top = []
++    max_list = []
++    for i in company_list.values():
++        top.append(i)
++    for x in range(q_data):
++        max_profit = max(top)
++        max_list.append(max_profit)
++        top.remove(max_profit)
++    return max_list
+ 
+ 
+ company = {'BMW': 200100, 'AUDI': 7500, 'Sberbank': 50000, 'VTB': 222, 'Google': 921200, 'HH': 10}
+@@ -48,3 +45,30 @@
+ print(top_company_2(company, 3))
+ 
+ # Решение 1 визуально выглядит лучше и по уровню сложности лучше, т.к. сложность O(n log n) меньше, чем O(n^)
++
++
++# Решение 1, уровень сложности O(n log n)
++def top_company(comp_list):
++	top = sorted(comp_list, key = comp_list.get, reverse = True)[:3]
++	return top
++
++
++# Решение 2, уровень сложности O(n^2)
++def top_company_2(company_list, q_data):
++	top = []
++	max_list = []
++	for i in company_list.values():
++		top.append(i)
++	for x in range(q_data):
++		max_profit = max(top)
++		max_list.append(max_profit)
++		top.remove(max_profit)
++	return max_list
++
++
++company = {'BMW': 200100, 'AUDI': 7500, 'Sberbank': 50000, 'VTB': 222, 'Google': 921200, 'HH': 10}
++
++print(top_company(company))
++print(top_company_2(company, 3))
++
++# Решение 1 визуально выглядит лучше и по уровню сложности лучше, т.к. сложность O(n log n) меньше, чем O(n^)
+Index: Урок 1. Практическое задание/task_2.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"\r\nЗадание 2.\r\n\r\nРеализуйте два алгоритма.\r\n\r\nПервый, в виде функции, должен обеспечивать поиск минимального значения для списка.\r\nВ основе алгоритма должно быть сравнение каждого числа со всеми другими элементами списка.\r\nСложность такого алгоритма: O(n^2) - квадратичная.\r\n\r\nВторой, в виде функции, должен обеспечивать поиск минимального значения для списка.\r\nСложность такого алгоритма: O(n) - линейная.\r\n\r\nНе забудьте указать где какая сложность.\r\n\r\nПримечание:\r\nПостроить список можно через списковое включение.\r\nЕсли у вас возникают сложности, постарайтесь подумать как можно решить задачу,\r\nа не писать \"мы это не проходили)\".\r\nАлгоритмизатор должен развивать мышление, а это прежде всего практика.\r\nА без столкновения со сложностями его не развить.\r\n\"\"\"\r\n\r\n\r\n# 1. Функция поиска минимального значания из списка, сложность O(n^2) - квадратичная\r\ndef min_search(min_list):\r\n\tmin_o = min_list[0]\r\n\tfor el in min_list:\r\n\t\tfor el2 in min_list:\r\n\t\t\tif el < el2 and el < min_o:\r\n\t\t\t\tmin_o = el\r\n\treturn min_o\r\n\r\n\r\n# 2. Функция поиска минимального значания из списка, сложность O(n) - линейная\r\ndef min_search_2(min_list):\r\n\tmin_o = min_list[0]\r\n\tfor el in min_list:\r\n\t\tif el < min_o:\r\n\t\t\tmin_o = el\r\n\treturn min_o\r\n\r\n\r\nl = [2, 7, 9, 12, 33, 5, 0, -2, -5]\r\n\r\nprint(min_search(l))\r\nprint(min_search_2(l))\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Урок 1. Практическое задание/task_2.py b/Урок 1. Практическое задание/task_2.py
+--- a/Урок 1. Практическое задание/task_2.py	
++++ b/Урок 1. Практическое задание/task_2.py	
+@@ -1,17 +1,12 @@
+ """
+ Задание 2.
+-
+ Реализуйте два алгоритма.
+-
+ Первый, в виде функции, должен обеспечивать поиск минимального значения для списка.
+ В основе алгоритма должно быть сравнение каждого числа со всеми другими элементами списка.
+ Сложность такого алгоритма: O(n^2) - квадратичная.
+-
+ Второй, в виде функции, должен обеспечивать поиск минимального значения для списка.
+ Сложность такого алгоритма: O(n) - линейная.
+-
+ Не забудьте указать где какая сложность.
+-
+ Примечание:
+ Построить список можно через списковое включение.
+ Если у вас возникают сложности, постарайтесь подумать как можно решить задачу,
+@@ -23,23 +18,48 @@
+ 
+ # 1. Функция поиска минимального значания из списка, сложность O(n^2) - квадратичная
+ def min_search(min_list):
+-	min_o = min_list[0]
+-	for el in min_list:
+-		for el2 in min_list:
+-			if el < el2 and el < min_o:
+-				min_o = el
+-	return min_o
++    min_o = min_list[0]
++    for el in min_list:
++        for el2 in min_list:
++            if el < el2 and el < min_o:
++                min_o = el
++    return min_o
+ 
+ 
+ # 2. Функция поиска минимального значания из списка, сложность O(n) - линейная
+ def min_search_2(min_list):
+-	min_o = min_list[0]
+-	for el in min_list:
+-		if el < min_o:
+-			min_o = el
+-	return min_o
++    min_o = min_list[0]
++    for el in min_list:
++        if el < min_o:
++            min_o = el
++    return min_o
+ 
+ 
++lenta = [2, 7, 9, 12, 33, 5, 0, -2, -5]
++
++print(min_search(lenta))
++print(min_search_2(lenta))
++
++
++# 1. Функция поиска минимального значания из списка, сложность O(n^2) - квадратичная
++def min_search(min_list):
++	min_o = min_list[0]
++	for el in min_list:
++		for el2 in min_list:
++			if el < el2 and el < min_o:
++				min_o = el
++	return min_o
++
++
++# 2. Функция поиска минимального значания из списка, сложность O(n) - линейная
++def min_search_2(min_list):
++	min_o = min_list[0]
++	for el in min_list:
++		if el < min_o:
++			min_o = el
++	return min_o
++
++
+ l = [2, 7, 9, 12, 33, 5, 0, -2, -5]
+ 
+ print(min_search(l))
+Index: Урок 1. Практическое задание/task_1.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"\r\nЗадание 1.\r\n\r\nДля каждой из трех задач выполнить следующее:\r\n\r\n1) для каждой инструкции рядом в комментарии определите сложность этой инструкции\r\n2) определите сложность алгоритма в целом\r\n\r\nукажите сложность непосредственно в этом файле\r\nточки, где нужно поработать вам, отмечены знаком '!!!'\r\nНе забудтье оценить итоговую сложность каждого из трех алгоритмов.\r\n\r\nПримечание:\r\nЕсли у вас возникают сложности, постарайтесь подумать как можно решить задачу,\r\nа не писать \"мы это не проходили)\".\r\nАлгоритмизатор должен развивать мышление, а это прежде всего практика.\r\nА без столкновения со сложностями его не развить.\r\n\"\"\"\r\n\r\nimport random\r\n\r\n\r\n#############################################################################################\r\ndef check_1(lst_obj):\r\n    \"\"\"Функция должна создать множество из списка.\r\n\r\n    Алгоритм 3:\r\n    Создать множество из списка\r\n\r\n    Сложность: !!!.\r\n    \"\"\"\r\n    lst_to_set = set(lst_obj)  # !!! O(n)\r\n    return lst_to_set  # !!! O(1)\r\n\r\n\r\n#############################################################################################\r\ndef check_2(lst_obj):\r\n    \"\"\"Функция должная вернуть True, если все элементы списка различаются.\r\n\r\n    Алгоритм 1:\r\n    Проходимся по списку и для каждого элемента проверяем,\r\n    что такой элемент отстутствует\r\n    в оставшихся справа элементах\r\n\r\n    Сложность: !!!.\r\n    \"\"\"\r\n    for j in range(len(lst_obj)):          # !!! O(len(n)) - кол-во операций зависит от длины списка\r\n        if lst_obj[j] in lst_obj[j+1:]:    # !!! O(n)\r\n            return False                   # !!! O(1)\r\n    return True                            # !!! O(1)\r\n\r\n\r\n#############################################################################################\r\ndef check_3(lst_obj):\r\n    \"\"\"Функция должная вернуть True, если все элементы списка различаются.\r\n\r\n    Алгоритм 2:\r\n    Вначале выполним для списка сортировку, далее, сравниваем элементы попарно\r\n    Если присутствуют дубли, они будут находиться рядом.\r\n\r\n    Сложность: !!!\r\n    \"\"\"\r\n    lst_copy = list(lst_obj)                 # !!! O(n)\r\n    lst_copy.sort()                          # !!! O(n log n)\r\n    for i in range(len(lst_obj) - 1):        # !!! O(n)\r\n        if lst_copy[i] == lst_copy[i+1]:     # !!! O(1)\r\n            return False                     # !!! O(1)\r\n    return True                              # !!! O(1)\r\n\r\n#############################################################################################\r\n\r\n\r\nfor j in (50, 500, 1000, 5000, 1000):\r\n    # Из 100000 чисел возьмем 'j' случайно выбранных\r\n    # Всего 10 тыс. чисел\r\n    lst = random.sample(range(-100000, 100000), j)\r\n\r\nprint(check_1(lst))\r\nprint(check_2(lst))\r\nprint(check_3(lst))\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Урок 1. Практическое задание/task_1.py b/Урок 1. Практическое задание/task_1.py
+--- a/Урок 1. Практическое задание/task_1.py	
++++ b/Урок 1. Практическое задание/task_1.py	
+@@ -1,15 +1,11 @@
+ """
+ Задание 1.
+-
+ Для каждой из трех задач выполнить следующее:
+-
+ 1) для каждой инструкции рядом в комментарии определите сложность этой инструкции
+ 2) определите сложность алгоритма в целом
+-
+ укажите сложность непосредственно в этом файле
+ точки, где нужно поработать вам, отмечены знаком '!!!'
+ Не забудтье оценить итоговую сложность каждого из трех алгоритмов.
+-
+ Примечание:
+ Если у вас возникают сложности, постарайтесь подумать как можно решить задачу,
+ а не писать "мы это не проходили)".
+@@ -23,10 +19,8 @@
+ #############################################################################################
+ def check_1(lst_obj):
+     """Функция должна создать множество из списка.
+-
+     Алгоритм 3:
+     Создать множество из списка
+-
+     Сложность: !!!.
+     """
+     lst_to_set = set(lst_obj)  # !!! O(n)
+@@ -36,12 +30,10 @@
+ #############################################################################################
+ def check_2(lst_obj):
+     """Функция должная вернуть True, если все элементы списка различаются.
+-
+     Алгоритм 1:
+     Проходимся по списку и для каждого элемента проверяем,
+     что такой элемент отстутствует
+     в оставшихся справа элементах
+-
+     Сложность: !!!.
+     """
+     for j in range(len(lst_obj)):          # !!! O(len(n)) - кол-во операций зависит от длины списка
+@@ -53,11 +45,9 @@
+ #############################################################################################
+ def check_3(lst_obj):
+     """Функция должная вернуть True, если все элементы списка различаются.
+-
+     Алгоритм 2:
+     Вначале выполним для списка сортировку, далее, сравниваем элементы попарно
+     Если присутствуют дубли, они будут находиться рядом.
+-
+     Сложность: !!!
+     """
+     lst_copy = list(lst_obj)                 # !!! O(n)
+Index: Урок 1. Практическое задание/task_7.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"\r\nЗадание 7.\r\nЗадание на закрепление навыков работы с деком\r\n\r\nВ рассмотренном на уроке листинге есть один недостаток\r\nПриведенный код способен \"обработать\" только строку без пробелов, например, 'топот'\r\n\r\nНо могут быть и такие палиндромы, как 'молоко делили ледоколом'\r\n\r\nВам нужно доработать программу так, чтобы она могла выполнить проверку на палиндром\r\nи в таких строках (включающих пробелы)\r\n\"\"\"\r\n\r\n\r\ndef reverse(word):\r\n\treturn word[::-1]\r\n\r\n\r\ndef isPalindrome(word):\r\n\tif word == reverse(word):\r\n\t\treturn True\r\n\treturn False\r\n\r\n\r\nword = 'молоко делили ледоколом'\r\nword = word.replace(' ', '')\r\nanswer = isPalindrome(word)\r\n\r\nif answer == 1:\r\n\tprint(\"Это палиндром\")\r\nelse:\r\n\tprint(\"Это не палиндром\")\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Урок 1. Практическое задание/task_7.py b/Урок 1. Практическое задание/task_7.py
+--- a/Урок 1. Практическое задание/task_7.py	
++++ b/Урок 1. Практическое задание/task_7.py	
+@@ -1,17 +1,34 @@
+ """
+ Задание 7.
+ Задание на закрепление навыков работы с деком
+-
+ В рассмотренном на уроке листинге есть один недостаток
+ Приведенный код способен "обработать" только строку без пробелов, например, 'топот'
+-
+ Но могут быть и такие палиндромы, как 'молоко делили ледоколом'
+-
+ Вам нужно доработать программу так, чтобы она могла выполнить проверку на палиндром
+ и в таких строках (включающих пробелы)
+ """
+ 
+ 
++def reverse(words):
++    return words[::-1]
++
++
++def isPalindrome(words):
++    if words == reverse(words):
++        return True
++    return False
++
++
++word = 'молоко делили ледоколом'
++word = word.replace(' ', '')
++answer = isPalindrome(word)
++
++if answer == 1:
++    print("Это палиндром")
++else:
++    print("Это не палиндром")
++
++
+ def reverse(word):
+ 	return word[::-1]
+ 
+Index: Урок 1. Практическое задание/task_6.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"\r\nЗадание 6.\r\nЗадание на закрепление навыков работы с очередью\r\n\r\nПримечание: в этом задании вспомните ваши знания по работе с ООП\r\nи опирайтесь на пример урока\r\n\r\nРеализуйте структуру \"доска задач\".\r\n\r\nСтруктура должна предусматривать наличие несольких очередей задач, например\r\n1) базовой, откуда задачи берутся, решаются и отправляются в список решенных\r\n2) очередь на доработку, когда нерешенные задачи из первой очереди отправляются\r\nна корректировку решения\r\n\r\nПосле реализации структуры, проверьте ее работу на различных сценариях\r\n\"\"\"\r\n\r\n\r\nclass TaskBoard:\r\n    \"\"\"Класс структуры\"\"\"\r\n    def __init__(self):\r\n        self.__solved = []  # Список решенных задач\r\n        self.__basic = Queue()  # Очередь решаемых задач\r\n        self.__revision = Queue()  # Очередь на доработку\r\n\r\n    def add_task(self, task):\r\n        \"\"\"Добавляет задачу в список решаемых\"\"\"\r\n        self.__basic.add(task)\r\n\r\n    def move_to_revision(self):\r\n        \"\"\"Перемещает последнюю задачу из решаемых на доработку\"\"\"\r\n        self.__revision.add(self.__basic.remove())\r\n\r\n    def move_to_solved(self):\r\n        \"\"\"Перемещает последнюю задачу из решаемых в решенные\"\"\"\r\n        self.__solved.append(self.__basic.remove())\r\n\r\n    def complete_revision(self):\r\n        \"\"\"Перемещает последнюю задачу из списка на дорабоке в решенные\"\"\"\r\n        self.__solved.append(self.__revision.remove())\r\n\r\n    def __str__(self):\r\n        return 'Решаемые задачи: ' + str(self.__basic) + '\\nЗадачи на доработку: ' + str(self.__revision) + \\\r\n               '\\nЗавершенные задачи: ' + ', '.join(self.__solved) + '\\n'\r\n\r\n\r\nclass Queue:\r\n    \"\"\"Класс очереди\"\"\"\r\n    def __init__(self):\r\n        self.__lst = []\r\n\r\n    def add(self, element):\r\n        \"\"\"Добавляет элемент в очередь\"\"\"\r\n        self.__lst.insert(0, element)\r\n\r\n    def remove(self):\r\n        \"\"\"Убирает элемент из очереди\"\"\"\r\n        return self.__lst.pop()\r\n\r\n    def __len__(self):\r\n        \"\"\"Возвращает длину очереди\"\"\"\r\n        return len(self.__lst)\r\n\r\n    def __str__(self):\r\n        return ', '.join(reversed(self.__lst))\r\n\r\n\r\ntask_board = TaskBoard()\r\n\r\ntask_board.add_task('собрать команду')\r\ntask_board.add_task('придумать план')\r\nprint(task_board)\r\n\r\ntask_board.move_to_revision()\r\nprint(task_board)\r\n\r\ntask_board.add_task('назначить встречу')\r\ntask_board.move_to_solved()\r\nprint(task_board)\r\n\r\ntask_board.complete_revision()\r\ntask_board.move_to_solved()\r\nprint(task_board)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Урок 1. Практическое задание/task_6.py b/Урок 1. Практическое задание/task_6.py
+--- a/Урок 1. Практическое задание/task_6.py	
++++ b/Урок 1. Практическое задание/task_6.py	
+@@ -1,17 +1,13 @@
+ """
+ Задание 6.
+ Задание на закрепление навыков работы с очередью
+-
+ Примечание: в этом задании вспомните ваши знания по работе с ООП
+ и опирайтесь на пример урока
+-
+ Реализуйте структуру "доска задач".
+-
+ Структура должна предусматривать наличие несольких очередей задач, например
+ 1) базовой, откуда задачи берутся, решаются и отправляются в список решенных
+ 2) очередь на доработку, когда нерешенные задачи из первой очереди отправляются
+ на корректировку решения
+-
+ После реализации структуры, проверьте ее работу на различных сценариях
+ """
+ 
+@@ -81,3 +77,70 @@
+ task_board.complete_revision()
+ task_board.move_to_solved()
+ print(task_board)
++
++
++class TaskBoard:
++    """Класс структуры"""
++    def __init__(self):
++        self.__solved = []  # Список решенных задач
++        self.__basic = Queue()  # Очередь решаемых задач
++        self.__revision = Queue()  # Очередь на доработку
++
++    def add_task(self, task):
++        """Добавляет задачу в список решаемых"""
++        self.__basic.add(task)
++
++    def move_to_revision(self):
++        """Перемещает последнюю задачу из решаемых на доработку"""
++        self.__revision.add(self.__basic.remove())
++
++    def move_to_solved(self):
++        """Перемещает последнюю задачу из решаемых в решенные"""
++        self.__solved.append(self.__basic.remove())
++
++    def complete_revision(self):
++        """Перемещает последнюю задачу из списка на дорабоке в решенные"""
++        self.__solved.append(self.__revision.remove())
++
++    def __str__(self):
++        return 'Решаемые задачи: ' + str(self.__basic) + '\nЗадачи на доработку: ' + str(self.__revision) + \
++               '\nЗавершенные задачи: ' + ', '.join(self.__solved) + '\n'
++
++
++class Queue:
++    """Класс очереди"""
++    def __init__(self):
++        self.__lst = []
++
++    def add(self, element):
++        """Добавляет элемент в очередь"""
++        self.__lst.insert(0, element)
++
++    def remove(self):
++        """Убирает элемент из очереди"""
++        return self.__lst.pop()
++
++    def __len__(self):
++        """Возвращает длину очереди"""
++        return len(self.__lst)
++
++    def __str__(self):
++        return ', '.join(reversed(self.__lst))
++
++
++task_board = TaskBoard()
++
++task_board.add_task('собрать команду')
++task_board.add_task('придумать план')
++print(task_board)
++
++task_board.move_to_revision()
++print(task_board)
++
++task_board.add_task('назначить встречу')
++task_board.move_to_solved()
++print(task_board)
++
++task_board.complete_revision()
++task_board.move_to_solved()
++print(task_board)
+Index: Урок 1. Практическое задание/task_5.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"\r\nЗадание 5.\r\nЗадание на закрепление навыков работы со стеком\r\n\r\nПримечание: в этом задании вспомните ваши знания по работе с ООП\r\nи опирайтесь на пример урока\r\n\r\nРеализуйте структуру \"стопка тарелок\".\r\n\r\nМы можем складывать тарелки в стопку и при превышении некоторого значения\r\nнужно начать складывать тарелки в новую стопку.\r\n\r\nСтруктура должна предусматривать наличие нескольких стеков.\r\nСоздание нового стека происходит при достижении предыдущим стеком порогового значения.\r\nРеализуйте по аналогии с примером, рассмотренным на уроке, необходимые методы,\r\nдля реализации это структуры, добавьте новые методы (не рассмотренные в примере с урока)\r\nдля реализации этой задачи.\r\n\r\nПосле реализации структуры, проверьте ее работу на различных сценариях\r\n\r\nПодсказка:\r\nОтдельне стопки можно реализовать через:\r\n# 1) созд-е экземпляров стека (если стопка - класс)\r\n# 2) lst = [[], [], [], [],....]\r\n\"\"\"\r\n\r\n\r\nclass PlateStack:\r\n\tdef __init__(self, limit):\r\n\t\tself.limit = limit\r\n\t\tself.__stacks = []\r\n\r\n\tdef add(self, number_of_plates = 1):\r\n\t\tfor i in range(number_of_plates):\r\n\t\t\tif len(self.__stacks) == 0 or len(self.__stacks[-1]) == self.limit:\r\n\t\t\t\tself.__stacks.append(Stack())\r\n\t\t\tself.__stacks[-1].add('Тарелка')\r\n\r\n\tdef remove(self, number_of_plates = 1):\r\n\t\tfor i in range(number_of_plates):\r\n\t\t\tif len(self.__stacks) == 0:\r\n\t\t\t\treturn\r\n\t\t\tself.__stacks[-1].pop()\r\n\t\t\tif len(self.__stacks[-1]) == 0:\r\n\t\t\t\tself.__stacks.pop()\r\n\r\n\tdef __str__(self):\r\n\t\ts = ' '.join([str(len(stack)) for stack in self.__stacks])\r\n\t\treturn 'Количество стопок: ' + str(len(self.__stacks)) + '\\nСостояние стопок: ' + s + '\\n'\r\n\r\n\r\nclass Stack:\r\n\tdef __init__(self):\r\n\t\tself.__lst = []\r\n\r\n\tdef add(self, element):\r\n\t\tself.__lst.append(element)\r\n\r\n\tdef pop(self):\r\n\t\treturn self.__lst.pop()\r\n\r\n\tdef __len__(self):\r\n\t\treturn len(self.__lst)\r\n\r\n\r\n# Задаем количество тарелок в стопке\r\nprint(\"В одной стопке 4 тарелки\\n\")\r\nplate_stack = PlateStack(4)\r\n\r\nprint(\"Добавялем 5 тарелок в стопку\")\r\nplate_stack.add(5)\r\nprint(plate_stack)\r\n\r\nprint(\"Добавялем 13 тарелки в стопки\")\r\nplate_stack.add(13)\r\nprint(plate_stack)\r\n\r\nprint(\"Удаляем 11 тарелок из стопки\")\r\nplate_stack.remove(7)\r\nprint(plate_stack)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Урок 1. Практическое задание/task_5.py b/Урок 1. Практическое задание/task_5.py
+--- a/Урок 1. Практическое задание/task_5.py	
++++ b/Урок 1. Практическое задание/task_5.py	
+@@ -1,23 +1,17 @@
+ """
+ Задание 5.
+ Задание на закрепление навыков работы со стеком
+-
+ Примечание: в этом задании вспомните ваши знания по работе с ООП
+ и опирайтесь на пример урока
+-
+ Реализуйте структуру "стопка тарелок".
+-
+ Мы можем складывать тарелки в стопку и при превышении некоторого значения
+ нужно начать складывать тарелки в новую стопку.
+-
+ Структура должна предусматривать наличие нескольких стеков.
+ Создание нового стека происходит при достижении предыдущим стеком порогового значения.
+ Реализуйте по аналогии с примером, рассмотренным на уроке, необходимые методы,
+ для реализации это структуры, добавьте новые методы (не рассмотренные в примере с урока)
+ для реализации этой задачи.
+-
+ После реализации структуры, проверьте ее работу на различных сценариях
+-
+ Подсказка:
+ Отдельне стопки можно реализовать через:
+ # 1) созд-е экземпляров стека (если стопка - класс)
+@@ -26,41 +20,41 @@
+ 
+ 
+ class PlateStack:
+-	def __init__(self, limit):
+-		self.limit = limit
+-		self.__stacks = []
++    def __init__(self, limit):
++        self.limit = limit
++        self.__stacks = []
+ 
+-	def add(self, number_of_plates = 1):
+-		for i in range(number_of_plates):
+-			if len(self.__stacks) == 0 or len(self.__stacks[-1]) == self.limit:
+-				self.__stacks.append(Stack())
+-			self.__stacks[-1].add('Тарелка')
++    def add(self, number_of_plates = 1):
++        for i in range(number_of_plates):
++            if len(self.__stacks) == 0 or len(self.__stacks[-1]) == self.limit:
++                self.__stacks.append(Stack())
++            self.__stacks[-1].add('Тарелка')
+ 
+-	def remove(self, number_of_plates = 1):
+-		for i in range(number_of_plates):
+-			if len(self.__stacks) == 0:
+-				return
+-			self.__stacks[-1].pop()
+-			if len(self.__stacks[-1]) == 0:
+-				self.__stacks.pop()
++    def remove(self, number_of_plates = 1):
++        for i in range(number_of_plates):
++            if len(self.__stacks) == 0:
++                return
++            self.__stacks[-1].pop()
++            if len(self.__stacks[-1]) == 0:
++                self.__stacks.pop()
+ 
+-	def __str__(self):
+-		s = ' '.join([str(len(stack)) for stack in self.__stacks])
+-		return 'Количество стопок: ' + str(len(self.__stacks)) + '\nСостояние стопок: ' + s + '\n'
++    def __str__(self):
++        s = ' '.join([str(len(stack)) for stack in self.__stacks])
++        return 'Количество стопок: ' + str(len(self.__stacks)) + '\nСостояние стопок: ' + s + '\n'
+ 
+ 
+ class Stack:
+-	def __init__(self):
+-		self.__lst = []
++    def __init__(self):
++        self.__lst = []
+ 
+-	def add(self, element):
+-		self.__lst.append(element)
++    def add(self, element):
++        self.__lst.append(element)
+ 
+-	def pop(self):
+-		return self.__lst.pop()
++    def pop(self):
++        return self.__lst.pop()
+ 
+-	def __len__(self):
+-		return len(self.__lst)
++    def __len__(self):
++        return len(self.__lst)
+ 
+ 
+ # Задаем количество тарелок в стопке
+@@ -78,3 +72,58 @@
+ print("Удаляем 11 тарелок из стопки")
+ plate_stack.remove(7)
+ print(plate_stack)
++
++
++class PlateStack:
++	def __init__(self, limit):
++		self.limit = limit
++		self.__stacks = []
++
++	def add(self, number_of_plates = 1):
++		for i in range(number_of_plates):
++			if len(self.__stacks) == 0 or len(self.__stacks[-1]) == self.limit:
++				self.__stacks.append(Stack())
++			self.__stacks[-1].add('Тарелка')
++
++	def remove(self, number_of_plates = 1):
++		for i in range(number_of_plates):
++			if len(self.__stacks) == 0:
++				return
++			self.__stacks[-1].pop()
++			if len(self.__stacks[-1]) == 0:
++				self.__stacks.pop()
++
++	def __str__(self):
++		s = ' '.join([str(len(stack)) for stack in self.__stacks])
++		return 'Количество стопок: ' + str(len(self.__stacks)) + '\nСостояние стопок: ' + s + '\n'
++
++
++class Stack:
++	def __init__(self):
++		self.__lst = []
++
++	def add(self, element):
++		self.__lst.append(element)
++
++	def pop(self):
++		return self.__lst.pop()
++
++	def __len__(self):
++		return len(self.__lst)
++
++
++# Задаем количество тарелок в стопке
++print("В одной стопке 4 тарелки\n")
++plate_stack = PlateStack(4)
++
++print("Добавялем 5 тарелок в стопку")
++plate_stack.add(5)
++print(plate_stack)
++
++print("Добавялем 13 тарелки в стопки")
++plate_stack.add(13)
++print(plate_stack)
++
++print("Удаляем 11 тарелок из стопки")
++plate_stack.remove(7)
++print(plate_stack)
