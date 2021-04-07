@@ -31,19 +31,19 @@
 
 
 def calc():
-	operation = input('Введите операцию (или 0 для выхода): ')
-	if operation == '0':
-		return
-	if operation not in ('+', '-', '*', '/'):
-		print('Я не знаю такой операцию! Попробуйте "+", "-", "*", "/"')
-		return calc()
-	try:
-		a = float(input('Введите первое число: '))
-		b = float(input('Введите второе число: '))
-		print('Результат:', a + b if operation == '+' else a - b if operation == '-' else a * b if operation == '*' else a / b)
-	except ValueError:
-		print('Вы ввели строку, которую невозможно преоброзовать в число')
-	return calc()
+    operation = input('Введите операцию (или 0 для выхода): ')
+    if operation == '0':
+        return
+    if operation not in ('+', '-', '*', '/'):
+        print('Я не знаю такой операцию! Попробуйте "+", "-", "*", "/"')
+        return calc()
+    try:
+        a = float(input('Введите первое число: '))
+        b = float(input('Введите второе число: '))
+        print('Результат:', a + b if operation == '+' else a - b if operation == '-' else a * b if operation == '*' else a / b)
+    except ValueError:
+        print('Вы ввели строку, которую невозможно преоброзовать в число')
+    return calc()
 
 
 calc()

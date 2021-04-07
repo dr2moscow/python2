@@ -21,9 +21,9 @@
 
 
 def func(n):
-	if n // 10 == 0:
-		return n % 2
-	return n % 2 + func(n // 10)
+    if n // 10 == 0:
+        return n % 2
+    return n % 2 + func(n // 10)
 
 
 number = int(input('Введите число: '))

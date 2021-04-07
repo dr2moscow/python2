@@ -18,12 +18,12 @@
 
 
 def func(n, i = 0, left = 0):
-	if n == 0:
-		return 'Равенство выполнется'
-	left += i + 1
-	if left != (i + 1) * (i + 2) // 2:
-		return 'Равенство не выполнется'
-	return func(n - 1, i + 1, left)
+    if n == 0:
+        return 'Равенство выполнется'
+    left += i + 1
+    if left != (i + 1) * (i + 2) // 2:
+        return 'Равенство не выполнется'
+    return func(n - 1, i + 1, left)
 
 
 number = int(input('Введите число: '))

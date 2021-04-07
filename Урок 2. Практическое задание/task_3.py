@@ -25,9 +25,9 @@
 
 
 def roll(n):
-	if len(n) == 1:
-		return n
-	return roll(n[1:]) + n[0]
+    if len(n) == 1:
+        return n
+    return roll(n[1:]) + n[0]
 
 
 number = input('Введите число: ')
