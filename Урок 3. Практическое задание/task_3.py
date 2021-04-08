@@ -17,3 +17,19 @@
 """
 
 # hash?
+
+
+def func(str_obj):
+    substrings = []
+    for i in range(len(str_obj) - 1):
+        substrings.append(str_obj[0:i + 1])
+        substrings.append(str_obj[i + 1:])
+    print(substrings)
+    substrings = set(substrings)
+    print(f'Колличество подстрок: {len(substrings)}')
+    for i in substrings:
+        print(hash(i))
+
+
+words = input('Введите слово: ')
+func(words)
