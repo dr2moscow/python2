@@ -18,3 +18,28 @@
 Допускаются любые усложения задания - валидация, подключение к БД, передача данных в файл
 """
 # sqlite, postgres, db_api, orm
+from hashlib import sha256
+salt = 'Professinonal#2021'
+
+
+def create_hash(pwd):
+    global salt
+    return sha256(pwd.encode('utf-8') + salt.encode('utf-8')).hexdigest()
+
+
+def authorization(pwd):
+    global salt
+    with open('data.txt', 'r') as read_file:
+        return True if sha256(pwd.encode('utf-8') + salt.encode('utf-8')).hexdigest() == read_file.read() else False
+
+
+password_hash = create_hash(input('Введите новый пароль: '))
+print('Пароль сохранен в в файле в безопасном формате, хеш::', password_hash)
+
+with open('data.txt', 'w') as write_file:
+    write_file.write(password_hash)
+
+del password_hash
+
+password = input('Введите пароль еще раз для проверки: ')
+print(f'Вы ввели {"" if authorization(password) else "не"}правильный пароль')
