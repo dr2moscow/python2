@@ -12,6 +12,7 @@
 Добавьте аналитику: что вы сделали и почему!!!
 Без аналитики задание считается не принятым
 """
+import timeit
 
 
 def func_1(nums):
@@ -20,3 +21,14 @@ def func_1(nums):
         if nums[i] % 2 == 0:
             new_arr.append(i)
     return new_arr
+
+
+def func_2(nums):
+    return [el for el in nums if el % 2 == 0]
+
+
+lst = list(range(10))
+print(timeit.timeit('func_1(lst)', setup='from __main__ import func_1, lst'))
+print(timeit.timeit('func_2(lst)', setup='from __main__ import func_2, lst'))
+
+#Поиск элемента по индексу является более ресурсоемким и времени тратиться больше, чем чтение элементов по очереди
