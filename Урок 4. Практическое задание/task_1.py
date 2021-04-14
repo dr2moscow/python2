@@ -28,7 +28,12 @@ def func_2(nums):
 
 
 lst = list(range(10))
-print(timeit.timeit('func_1(lst)', setup='from __main__ import func_1, lst'))
-print(timeit.timeit('func_2(lst)', setup='from __main__ import func_2, lst'))
+print('Поиск элемента:', timeit.timeit('func_1(lst)', setup='from __main__ import func_1, lst'))
+print('Чтение элемента:', timeit.timeit('func_2(lst)', setup='from __main__ import func_2, lst'))
+
+"""
+Поиск элемента: 1.0678843
+Чтение элемента: 0.6772743999999999
+"""
 
 # Поиск элемента по индексу является более ресурсоемким и времени тратиться больше, чем чтение элементов по очереди
